@@ -12,9 +12,4 @@ def shortest_sentence(text):
     return shortest
 
 
-# Example
-text = "I am here. Go now."
 
-result = shortest_sentence(text)
-
-print(result)
