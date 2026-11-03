@@ -1,26 +1,27 @@
 def find_sentence_by_word_count(text, n):
-  #stores the characters of the text currently being checked.
-  sentence = ""
+    # Store the characters of the sentence currently being checked.
+    sentence = ""
 
-#Read the input text one character at a time.
-for char in text:
-  sentence += char
+    # Read the input text one character at a time.
+    for char in text:
+        sentence += char
 
-    if char in ".!?":
-      #Removes spaces at the beginning or at the end of the sentence
-      sentence = sentence.strip()
+        # Check for the end of a sentence.
+        if char in ".!?":
+            # Remove spaces around the sentence.
+            sentence = sentence.strip()
 
-        #splits the sentence into whitespaced-separated words
-        if len(sentence.split()) == n:
-          return sentence
+            # Count whitespace-separated words.
+            if len(sentence.split()) == n:
+                return sentence
 
-        #starts collecting the next sentence
-        sentence = ""
+            # Start collecting the next sentence.
+            sentence = ""
 
-#Check any final sentence that does not end with punctuation.
-sentence = sentence.strip()
-if sentence and len(sentence.split()) == n:
-  return sentence
+    # Check any final sentence without ending punctuation.
+    sentence = sentence.strip()
+    if sentence and len(sentence.split()) == n:
+        return sentence
 
-#return none if no sentence has exactly n words
-return none
+    # Return None if no sentence has exactly n words.
+    return None
